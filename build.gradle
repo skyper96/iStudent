@@ -43,12 +43,17 @@ configurations {
     providedRuntime
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+}
+
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-data-mongodb')
     compile("de.flapdoodle.embed:de.flapdoodle.embed.mongo")
     compile group: 'com.rabbitmq', name: 'amqp-client', version: '5.0.0'
+    compile ('com.google.cloud:google-cloud-pubsub:0.32.0-beta')
 
     runtime('com.h2database:h2')
     runtime('mysql:mysql-connector-java')
@@ -60,6 +65,7 @@ dependencies {
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.1")
     testCompile("org.junit.platform:junit-platform-launcher:1.0.0")
     testCompile("com.github.sbrannen:spring-test-junit5:1.0.0")
+
 }
 
 junitPlatform {

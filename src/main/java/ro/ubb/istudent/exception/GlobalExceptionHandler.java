@@ -18,6 +18,18 @@ public class GlobalExceptionHandler {
         LOG.error("Entity not found {}", ex);
     }
 
+    @ExceptionHandler(SqlConnectException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void processSqlConnectException(SqlConnectException ex) {
+        LOG.error("Could not connect to the DB {}", ex);
+    }
+
+    @ExceptionHandler(GeneralException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void processGeneralException(GeneralException ex) {
+        LOG.error("Encountered a general exception: {}", ex);
+    }
+
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public void processAllOtherExceptions(Exception ex) {

@@ -1,0 +1,6 @@
+@ControllerAdvice - in spring
+	-> for error handling
+
+Pub/Sub for enrollment
+	-> un usecase in care pot folosi pub/sub
+	-> sa-l folosesc
